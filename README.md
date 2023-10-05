@@ -1,0 +1,2 @@
+# deltabank
+Daniel Oplíštil
