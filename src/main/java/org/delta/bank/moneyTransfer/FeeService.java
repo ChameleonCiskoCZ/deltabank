@@ -1,6 +1,6 @@
 package org.delta.bank.moneyTransfer;
 
-import org.delta.bank.account.BankAccount;
+import org.delta.bank.account.BaseBankAccount;
 import org.delta.bank.account.SavingBankAccount;
 import org.delta.bank.account.StudentBankAccount;
 
@@ -8,7 +8,7 @@ public class FeeService {
     public static final double STARTING_FEE_VALUE = 1000;
     public static final double FEE_SAVINGS = 10;
     public static final double FEE_CLASSIC = 1;
-    public double CalculateFee(BankAccount bankAccount,double value){
+    public double CalculateFee(BaseBankAccount bankAccount, double value){
         if(bankAccount instanceof StudentBankAccount) {
             return 0;
         } else if (bankAccount instanceof SavingBankAccount) {

@@ -1,4 +1,4 @@
-package people;
+package org.delta.bank.people;
 
 public class Owner {
     private String firstname;
@@ -16,4 +16,8 @@ public class Owner {
     public String getLastname() {
         return lastname;
     }
+    public String getFullname() {
+        return firstname+" "+lastname;
+    }
+
 }
