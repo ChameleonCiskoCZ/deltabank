@@ -5,30 +5,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.delta.bank.people.Owner;
+import org.delta.bank.print.LoggerService;
 
 public class AccountService {
     private final AccountFactory accountFactory;
     private Map<String, BaseBankAccount> accounts;
-    private PrintService printService;
+    private LoggerService loggerService;
     public AccountService(){
         this.accounts = new HashMap<>();
         this.accountFactory = new AccountFactory();
-        this.printService = new PrintService();
+        this.loggerService = new LoggerService();
     }
-    public BaseBankAccount addBaseAccount(Owner owner, int balance) {
-        BaseBankAccount account = accountFactory.createBaseAccount(owner, balance);
+    public BaseBankAccount addBaseAccount(Owner owner, String accNumber,int balance) {
+        BaseBankAccount account = accountFactory.createAccount(owner, accNumber, balance);
         storeAccount(account);
         return account;
     }
 
-    public SavingBankAccount addSavingAccount(Owner owner, int balance) {
-        SavingBankAccount account = accountFactory.createSavingAccount(owner, balance);
+    public SavingBankAccount addSavingAccount(Owner owner, String accNumber,int balance) {
+        SavingBankAccount account = accountFactory.createSavingAccount(owner, accNumber, balance);
         storeAccount(account);
         return account;
     }
 
-    public StudentBankAccount addStudentAccount(Owner owner, int balance) {
-        StudentBankAccount account = accountFactory.createStudentAccount(owner, balance);
+    public StudentBankAccount addStudentAccount(Owner owner, String accNumber,int balance) {
+        StudentBankAccount account = accountFactory.createStudentAccount(owner, accNumber, balance);
         storeAccount(account);
         return account;
     }

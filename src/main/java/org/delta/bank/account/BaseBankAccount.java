@@ -22,4 +22,8 @@ public class BaseBankAccount {
     public void setBalance(double value) {
         balance = value;
     }
+
+    public String getAccountNumber() {
+        return bankaccountnumber;
+    }
 }
