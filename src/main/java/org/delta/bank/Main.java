@@ -1,11 +1,19 @@
 package org.delta.bank;
 
-public class Main {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello world!");
-        Bank bank = new Bank();
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
-        bank.run();
+public class Main {
+    public static void main(String[] args) {
+        try {
+            Injector injector = Guice.createInjector(new BankInjector());
+            Bank bank = injector.getInstance(Bank.class);
+            bank.run();
+        } catch (Exception e) {
+            System.out.println("error xd");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 
 }

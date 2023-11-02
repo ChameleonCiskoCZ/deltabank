@@ -1,11 +1,13 @@
 package org.delta.bank.account;
 
+import com.google.inject.Inject;
 import org.delta.bank.people.Owner;
 
 import java.util.Random;
 
 public class CreateBankAccountService {
-    AccountFactory factory = new AccountFactory();
+    @Inject private AccountFactory factory;
+
     Random rnd = new Random();
 
     int accountNumber = rnd.nextInt(0, 1000000000);

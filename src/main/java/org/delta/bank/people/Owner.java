@@ -9,6 +9,7 @@ public class Owner {
         this.lastname = lastname;
     }
 
+
     public String getFirstname() {
         return firstname;
     }
