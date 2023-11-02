@@ -1,10 +1,7 @@
 package org.delta.bank;
 
 import com.google.inject.Inject;
-import org.delta.bank.account.AccountFactory;
-import org.delta.bank.account.AccountService;
-import org.delta.bank.account.BaseBankAccount;
-import org.delta.bank.account.StudentBankAccount;
+import org.delta.bank.account.*;
 import org.delta.bank.interest.AddInterestToAccount;
 import org.delta.bank.moneyTransfer.MoneyTransferService;
 import org.delta.bank.people.Owner;
@@ -20,6 +17,7 @@ public class Bank {
     @Inject private OwnerService ownerService;
     @Inject private AccountService accountService;
     @Inject private OwnerFactory ownerFactory;
+    @Inject private OwnerStringService ownerStringService;
     public void run() throws Exception {
         System.out.println("helo bank");
         List<BaseBankAccount> accountCollection = new LinkedList<>();
@@ -42,6 +40,11 @@ public class Bank {
 
             System.out.println(account.getOwner().getFullname() + "balance: " + account.getBalance());
         }
+        /*String jsonPes = this.ownerStringService.parseOwner(pes);
+        System.out.println(jsonPes);*/
+
+        String jsonPes1 = this.ownerStringService.jsonSerializeOwner(pes);
+        System.out.println(jsonPes1);
 
 }
 }

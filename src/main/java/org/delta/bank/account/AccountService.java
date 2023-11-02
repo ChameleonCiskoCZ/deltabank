@@ -4,18 +4,18 @@ import javax.print.PrintService;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.google.inject.Inject;
 import org.delta.bank.people.Owner;
 import org.delta.bank.print.LoggerService;
 
 public class AccountService {
-    private final AccountFactory accountFactory;
+    @Inject private AccountFactory accountFactory;
     private Map<String, BaseBankAccount> accounts;
     private LoggerService loggerService;
-    public AccountService(){
-        this.accounts = new HashMap<>();
-        this.accountFactory = new AccountFactory();
-        this.loggerService = new LoggerService();
+    public AccountService() {
+        accounts = new HashMap<>();
     }
+
     public BaseBankAccount addBaseAccount(Owner owner, String accNumber,int balance) {
         BaseBankAccount account = accountFactory.createAccount(owner, accNumber, balance);
         storeAccount(account);
